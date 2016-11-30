@@ -1,0 +1,13 @@
+{
+  "name": "新标签",
+  "description": "一款很酷的新标签",
+  "version": "0.1",
+  "incognito": "split",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "manifest_version": 2,
+  "permissions": [
+    "storage"
+  ]
+}
