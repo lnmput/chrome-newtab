@@ -1,5 +1,8 @@
 body{
-    background-image: url("../images/binding_dark.png");
+    /*background-image: url("../images/bc1.jpg");*/
+    background-repeat: repeat;
+    background-size: cover;
+    outline: none;
 }
 #clock{
     width: 460px;
@@ -14,7 +17,7 @@ body{
     text-align: center;
     font-size: 22px;
     color: #ccc;
-    font-weight: bolder;
+    font-weight: bold;
     font-family: 微软雅黑;
 }
 .search{
@@ -27,17 +30,27 @@ body{
     width: 600px;
     height: 40px;
     padding-left: 10px;
+    border:none;
+    background-color: transparent;
+    outline:none;
+    border-bottom: 1px solid #f9f9f9;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
 }
 .setting{
     position: absolute;
     bottom: 0;
 }
 button {
+    border: none;
+    background: transparent;
+    outline: none;
+}
+button img {
     width: 25px;
     height: 25px;
-    border-radius: 25px;
-    border: none;
-    background-image:url("../images/setin.png");
+    outline: none;
 }
 .setting-content{
     background: #000000;
@@ -72,4 +85,43 @@ button {
 .site-map ul li a{
     color: #f3efe0;
     text-decoration: none;
+}
+
+.setting-content, .st-menu {
+    background: #f9f9f9;
+}
+.hidden {
+    display: none;
+}
+
+label img {
+    width: 21px;
+    height:21px;
+    margin: 10px;
+    cursor: pointer;
+}
+#menu-3 li {
+    background: #48a770;
+}
+
+.up-content {
+    min-height: 130px;
+    border: 2px dashed  #CCCCCC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    color: #999;
+    font-size: 20px;
+    text-align: center;
+}
+
+#preview-image {
+    width: 300px;
+    border: none;
+}
+#upload-image-btn {
+    font-weight: bolder;
+    color: #999;
 }
