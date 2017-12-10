@@ -1,6 +1,6 @@
 {
-  "name": "新标签",
-  "description": "一款很酷的新标签",
+  "name": "YangTab",
+  "description": "a new tab for you, help you like it!",
   "version": "0.1",
   "incognito": "split",
   "chrome_url_overrides": {

@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>新标签</title>
+		<title>YangTab</title>
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/icons.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
@@ -15,6 +15,8 @@
         <script type="text/javascript" src="js/flipclock.min.js"></script>
         <script type="text/javascript" src="js/moment.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/hotkeys.min.js"></script>
+        <script type="text/javascript" src="js/hotkey.js"></script>
 	</head>
 	<body>
 		<div id="st-container" class="st-container">
@@ -22,13 +24,13 @@
 				<nav class="st-menu st-effect-7" id="menu-3">
 					<h2 class="icon icon-lab">SETTING</h2>
 					<ul>
-						<li><a class="icon icon-search setting-search" href="#">SEARCH</a></li>
+						<li><a class="icon icon-search setting-search" href="#">Default search engine</a></li>
                         <div class="setting-content">
-                            <label><img id="baidu"  title="baidu" src="./images/baidu.png"  class="img-check"><input type="radio" name="search-engine" value="baidu" class="hidden"></label>
                             <label><img id="google" title="google" src="./images/google.png"  class="img-check"><input type="radio" name="search-engine"  value="google" class="hidden"></label>
                             <label><img id="bing" title="bing" src="./images/bing.png" class="img-check"><input type="radio" name="search-engine" value="bing" class="hidden"></label>
+                            <label><img id="baidu"  title="baidu" src="./images/baidu.png"  class="img-check"><input type="radio" name="search-engine" value="baidu" class="hidden"></label>
                         </div>
-                        <li><a class="icon icon-photo" href="#">BACKGROUND IMAGE</a></li>
+                        <li><a class="icon icon-photo" href="#">Change the background picture</a></li>
                         <div class="setting-content">
                           <div class="up-content btnFile">
                             <div class="btn">
@@ -36,21 +38,28 @@
                               <input type="file" style="display:none;" id="upload-image" name="fileselect">
                             </div>
                           </div>
-                          <button id="image-position-center">位置居中</button>
-                          <button id="image-position-repeat">是否重复</button>
+                          <button id="image-position-center" class="hidden">position center</button>
+                          <button id="image-position-repeat" class="hidden">repeat</button>
+                        </div>
+                        <li><a class="icon icon-key" href="#">HOT KEY</a></li>
+                        <div class="setting-content">
+                          <p><kbd>a</kbd>  open the setting panel</p>
+                          <p><kbd>space</kbd>  start search</p>
+                          <p><kbd>alt + b</kbd>  switch to baidu search</p>
+                          <p><kbd>alt + g</kbd>  switch to google search</p>
                         </div>
 					</ul>
                     <p class="version">v1.0- PowerBy lnmput@gmail.com</p>
 				</nav>
                 <div id="st-trigger-effects">
-                    <button data-effect="st-effect-7" class="setting"><img  src="images/se.png"></button>
-
+                    <button data-effect="st-effect-7" class="setting"><img  src="images/settings.png"></button>
                     <div id="clock" class="clock">
                     </div>
                     <div class="date-time">
                     </div>
                     <div class="search">
-                        <input autofocus id="search-input" type="text" />
+                      <label for="search-input"><img src="images/google.png" id="search-input-image"></label>
+                        <input id="search-input" type="text" />
                     </div>
                 </div>
 			</div>

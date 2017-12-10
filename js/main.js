@@ -1,12 +1,22 @@
 $(document).ready(function() {
-
     init();
     showClock();
     getSearchEngine();
     setDateTime();
+    uploadImage();
+    settingImage();
     $("body").keydown(function() {
         if (event.keyCode == "13"  || event.which == 13) {
             getSearchUrl();
+        }
+    });
+});
+
+function init() {
+    chrome.storage.local.get('backgroud_image_url', function (result) {
+        var channels = result.backgroud_image_url;
+        if (channels) {
+            $("body").css('background-image', 'url(' + channels + ')');
         }
     });
 
@@ -15,38 +25,14 @@ $(document).ready(function() {
         changeSearchEngine(searchEngine);
     });
 
-    uploadImage();
-
-    settingImage();
-
-
-
-
-
-
-
-
-
-});
-
-
-function init() {
-    chrome.storage.local.get('backgroud_image_url', function (result) {
-        var channels = result.backgroud_image_url;
-        console.log(channels);
-        if (channels) {
-            $("body").css('background-image', 'url(' + channels + ')');
-        }
-
-
-
-
+    $("#search-input").focus(function () {
+        $(this).css('background-color', '#fff').css('color', '#000');
     });
 
-
-
+    $("#search-input").blur(function () {
+        $(this).css('background-color', 'transparent').css('color', '#999');
+    });
 }
-
 
 function uploadImage() {
     $("#upload-image-btn").click(function (event) {
@@ -63,20 +49,6 @@ function uploadImage() {
         });
 
     });
-}
-
-function toDataURL(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-        var reader = new FileReader();
-        reader.onloadend = function() {
-            callback(reader.result);
-        };
-        reader.readAsDataURL(xhr.response);
-    };
-    xhr.open('GET', url);
-    xhr.responseType = 'blob';
-    xhr.send();
 }
 
 function settingImage() {
@@ -107,25 +79,25 @@ function formatWeek(week) {
     switch (week)
     {
         case 1:
-            cn_week = '星期一';
+            cn_week = 'Monday';
             break;
         case 2:
-            cn_week = '星期二';
+            cn_week = 'Tuesday';
             break;
         case 3:
-            cn_week = '星期三';
+            cn_week = 'Wednesday';
             break;
         case 4:
-            cn_week = '星期四';
+            cn_week = 'Thursday';
             break;
         case 5:
-            cn_week = '星期五';
+            cn_week = 'Friday';
             break;
         case 6:
-            cn_week = '星期六';
+            cn_week = 'Saturday';
             break;
         case 0:
-            cn_week = '星期日';
+            cn_week = 'Sunday';
             break;
     }
     return cn_week;
@@ -164,21 +136,38 @@ function getSearchEngine() {
 
 function changeSearchEngine(searchEngine) {
     var searchUrl = '';
+    var searchInputImage = $("#search-input-image");
     switch (searchEngine)
     {
         case 'google':
-            $("#search-input").attr('placeholder','回车使用谷歌搜索');
+            $("#search-input").attr('placeholder','Press the enter key to search');
             searchUrl = 'http://www.google.com/search?q=';
+            searchInputImage.attr('src', './../images/google.png');
             break;
         case 'baidu':
-            $("#search-input").attr('placeholder','回车使用百度搜索');
+           $("#search-input").attr('placeholder','Press the enter key to search');
             searchUrl = 'https://www.baidu.com/s?wd=';
+            searchInputImage.attr('src', './../images/baidu.png');
             break;
         case 'bing':
-            $("#search-input").attr('placeholder','回车使用必应搜索');
+            $("#search-input").attr('placeholder','Press the enter key to search');
             searchUrl = 'https://bing.com/search?q=';
+            searchInputImage.attr('src', './../images/bing.png');
             break;
     }
-    chrome.storage.sync.set({'searchEngine': searchEngine,'searchUrl':searchUrl}, function() {
-    });
+    chrome.storage.sync.set({'searchEngine': searchEngine,'searchUrl':searchUrl});
+}
+
+function toDataURL(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        var reader = new FileReader();
+        reader.onloadend = function() {
+            callback(reader.result);
+        };
+        reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
 }

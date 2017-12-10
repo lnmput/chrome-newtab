@@ -1,19 +1,24 @@
 body{
-    /*background-image: url("../images/bc1.jpg");*/
+    background-image: url("../images/binding_dark.png");
     background-repeat: repeat;
-    background-size: cover;
+    background-position: center;
     outline: none;
+}
+a {
+    text-decoration: none !important;
 }
 #clock{
     width: 460px;
     height: 100px;
     margin: 0 auto;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 150px;
+    zoom: 1.2;
+    -moz-transform: scale(1.2);
 }
 .date-time{
-    width: 460px;
-    margin: 0 auto;
+    width: 500px;
+    margin: 155px auto  10px;
     text-align: center;
     font-size: 22px;
     color: #ccc;
@@ -35,8 +40,9 @@ body{
     outline:none;
     border-bottom: 1px solid #f9f9f9;
     color: #ffffff;
-    font-weight: bold;
     font-size: 20px;
+    text-align: center
+;
 }
 .setting{
     position: absolute;
@@ -54,8 +60,9 @@ button img {
 }
 .setting-content{
     background: #000000;
-    color: #ffffff;
+    color: #999999;
     padding:10px;
+    font-weight: bold;
 }
 .version{
     position: absolute;
@@ -70,7 +77,6 @@ button img {
     background: rgba(255,255,255,0.2);
     font-size: 16px;
     text-align: center;
-
 }
 .site-map ul{
     list-style: none;
@@ -124,4 +130,19 @@ label img {
 #upload-image-btn {
     font-weight: bolder;
     color: #999;
+}
+
+#search-input-image {
+    position: absolute;
+}
+
+kbd {
+    color: #fff;
+    background-color: #999;
+    border-radius: .2rem;
+    padding: .2rem .4rem;
+}
+
+#menu-3 li {
+    background: #1296db;
 }
