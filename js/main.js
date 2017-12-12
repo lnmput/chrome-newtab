@@ -27,9 +27,7 @@ function init() {
 
     $("#search-input").focus(function () {
         $(this).css('background-color', '#fff').css('color', '#000');
-    });
-
-    $("#search-input").blur(function () {
+    }).blur(function () {
         $(this).css('background-color', 'transparent').css('color', '#999');
     });
 }

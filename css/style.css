@@ -146,3 +146,15 @@ kbd {
 #menu-3 li {
     background: #1296db;
 }
+
+.logo {
+    float: left;
+    margin-right: 15px;
+}
+
+.st-menu h2 {
+    height: 86px !important;
+    line-height: 38px !important;
+    clear: both;
+    overflow: hidden;
+}
