@@ -130,6 +130,7 @@ label img {
 #upload-image-btn {
     font-weight: bolder;
     color: #999;
+    padding: 70px;
 }
 
 #search-input-image {
@@ -157,4 +158,19 @@ kbd {
     line-height: 38px !important;
     clear: both;
     overflow: hidden;
+}
+.image-change {
+    display: flex;
+    width: 300px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding-right: 25px;
+    padding-top: 5px;
+    margin-bottom: -8px;
+}
+.image-change img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }

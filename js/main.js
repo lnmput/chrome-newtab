@@ -30,6 +30,14 @@ function init() {
     }).blur(function () {
         $(this).css('background-color', 'transparent').css('color', '#999');
     });
+
+    $(".image-change img").click(function () {
+        var img = $(this).data('img');
+        
+
+
+
+    });
 }
 
 function uploadImage() {
@@ -69,7 +77,7 @@ function settingImage() {
 function setDateTime() {
     var m = moment();
     var week = formatWeek(m.weekday());
-    $(".date-time").html(m.get('year')+' / '+ m.get('month')+' / '+m.get('date')+ '  '+week);
+    $(".date-time").html(m.get('month')+' / '+m.get('date')+ ' / ' + m.get('year')+ '    '+week);
 }
 
 function formatWeek(week) {
