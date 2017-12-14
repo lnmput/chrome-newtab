@@ -1,7 +1,4 @@
 body{
-    background-image: url("../images/default-bg.jpg");
-    background-repeat: repeat;
-    background-position: center;
     background-size: cover;
     outline: none;
 }
@@ -22,9 +19,8 @@ a {
     margin: 155px auto  10px;
     text-align: center;
     font-size: 22px;
-    color: #ccc;
+    color: #333333;
     font-weight: bold;
-    font-family: 微软雅黑;
 }
 .search{
     width: 640px;
@@ -39,7 +35,7 @@ a {
     border:none;
     background-color: transparent;
     outline:none;
-    border-bottom: 1px solid #f9f9f9;
+    border-bottom: 1px solid #999999;
     color: #ffffff;
     font-size: 20px;
     text-align: center
@@ -69,13 +65,18 @@ button img {
     position: absolute;
     bottom: 0;
     padding-left: 10px;
+    color: #999999;
+}
+.version a {
+    color: #999999;
+    text-decoration: underline !important;
 }
 .site-map{
     width: 1200px;
     height: 400px;
     margin: 0 auto;
     margin-top: 60px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.4);
     font-size: 16px;
     text-align: center;
 }
@@ -90,7 +91,7 @@ button img {
     margin-left: 2px;
 }
 .site-map ul li a{
-    color: #f3efe0;
+    color: #999999;
     text-decoration: none;
 }
 
@@ -119,19 +120,15 @@ label img {
     justify-content: center;
     align-items: center;
     background-color: #FAFAFA;
-    color: #999;
+    color: #999999;
     font-size: 20px;
     text-align: center;
 }
 
-#preview-image {
-    width: 300px;
-    border: none;
-}
 #upload-image-btn {
     font-weight: bolder;
-    color: #999;
-    padding: 70px;
+    color: #999999;
+    padding: 40px;
 }
 
 #search-input-image {
@@ -140,11 +137,10 @@ label img {
 
 kbd {
     color: #fff;
-    background-color: #999;
+    background-color: #999999;
     border-radius: .2rem;
     padding: .2rem .4rem;
 }
-
 #menu-3 li {
     background: #1296db;
 }
@@ -181,4 +177,10 @@ kbd {
     display: block;
     padding-bottom: 5px;
     text-decoration:underline !important;
+    line-height: 20px;
+}
+.setting-content span img {
+    width: 20px;
+    float: left;
+    margin-right: 5px;
 }

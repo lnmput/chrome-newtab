@@ -17,14 +17,22 @@ function init() {
         var channels = result.backgroud_image_url;
         if (channels) {
             $("body").css('background-image', 'url(' + channels + ')');
+        } else {
+            $("body").css('background-image', 'url(../images/default-bg.jpg)');
         }
     });
 
     chrome.storage.local.get('background_size', function (result) {
         var channels = result.background_size;
-        console.log(channels);
         if (channels) {
             $("body").css('background-size', ''+channels+'');
+        }
+    });
+
+    chrome.storage.local.get('background_repeat', function (result) {
+        var channels = result.background_repeat;
+        if (channels) {
+            $("body").css('background-repeat', 'repeat').css('background-size', 'auto');
         }
     });
 
@@ -47,18 +55,20 @@ function init() {
             case 'contain':
                 $body.css('background-size', 'contain');
                 chrome.storage.local.set({'background_size': 'contain'});
+                chrome.storage.local.remove('background_repeat');
                 break;
             case 'cover':
                 $body.css('background-size', 'cover');
                 chrome.storage.local.set({'background_size': 'cover'});
+                chrome.storage.local.remove('background_repeat');
+                break;
+            case 'repeat':
+                $body.css('background-repeat', 'repeat');
+                $body.css('background-size', 'auto');
+                chrome.storage.local.set({'background_repeat': 'cover'});
+                chrome.storage.local.remove('background_size');
                 break;
         }
-
-
-        
-
-
-
     });
 }
 
@@ -75,7 +85,6 @@ function uploadImage() {
                 chrome.storage.local.set({'backgroud_image_url': dataUrl});
             })
         });
-
     });
 }
 
@@ -83,7 +92,6 @@ function settingImage() {
     $("#image-position-center").click(function () {
         $("body").css('background-position', 'center');
     });
-
     var clicked = false;
     $("#image-position-repeat").click(function () {
         if (clicked) {
@@ -145,7 +153,7 @@ function getSearchUrl() {
         if(obj){
             searchUrl = obj.searchUrl;
         }else{
-            searchUrl ='https://www.baidu.com/s?wd=';
+            searchUrl ='http://www.google.com/search?q=';
         }
         var keyWords = $("#search-input").val();
         window.location=searchUrl + encodeURIComponent(keyWords);
@@ -157,7 +165,7 @@ function getSearchEngine() {
         if(obj.searchEngine){
             changeSearchEngine(obj.searchEngine);
         }else{
-            changeSearchEngine('baidu');
+            changeSearchEngine('google');
         }
     });
 }
