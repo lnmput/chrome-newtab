@@ -1,7 +1,8 @@
 body{
-    background-image: url("../images/binding_dark.png");
+    background-image: url("../images/default-bg.jpg");
     background-repeat: repeat;
     background-position: center;
+    background-size: cover;
     outline: none;
 }
 a {
@@ -159,7 +160,7 @@ kbd {
     clear: both;
     overflow: hidden;
 }
-.image-change {
+.image-size-change {
     display: flex;
     width: 300px;
     flex-direction: row;
@@ -169,8 +170,15 @@ kbd {
     padding-top: 5px;
     margin-bottom: -8px;
 }
-.image-change img {
+.image-size-change img {
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+.setting-content a {
+    color: #999999;
+    display: block;
+    padding-bottom: 5px;
+    text-decoration:underline !important;
 }

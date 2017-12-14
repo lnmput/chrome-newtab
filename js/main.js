@@ -20,6 +20,14 @@ function init() {
         }
     });
 
+    chrome.storage.local.get('background_size', function (result) {
+        var channels = result.background_size;
+        console.log(channels);
+        if (channels) {
+            $("body").css('background-size', ''+channels+'');
+        }
+    });
+
     $('input[type=radio][name=search-engine]').change(function() {
         var searchEngine = $("input[name=search-engine]:checked").val();
         changeSearchEngine(searchEngine);
@@ -31,8 +39,22 @@ function init() {
         $(this).css('background-color', 'transparent').css('color', '#999');
     });
 
-    $(".image-change img").click(function () {
-        var img = $(this).data('img');
+    $(".image-size-change img").click(function () {
+        var attr = $(this).attr('title');
+        var $body = $("body");
+        switch (attr)
+        {
+            case 'contain':
+                $body.css('background-size', 'contain');
+                chrome.storage.local.set({'background_size': 'contain'});
+                break;
+            case 'cover':
+                $body.css('background-size', 'cover');
+                chrome.storage.local.set({'background_size': 'cover'});
+                break;
+        }
+
+
         
 
 
