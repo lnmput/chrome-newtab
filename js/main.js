@@ -18,7 +18,7 @@ function init() {
         if (channels) {
             $("body").css('background-image', 'url(' + channels + ')');
         } else {
-            $("body").css('background-image', 'url(../images/default-bg.jpg)');
+            $("body").css('background-image', 'url(https://raw.githubusercontent.com/lnmput/images-store/master/demo.jpg)');
         }
     });
 
@@ -68,6 +68,10 @@ function init() {
                 chrome.storage.local.set({'background_repeat': 'cover'});
                 chrome.storage.local.remove('background_size');
                 break;
+            case 'auto-switch':
+                $body.css('background-image', 'url(https://raw.githubusercontent.com/lnmput/images-store/master/demo.jpg)');
+                chrome.storage.local.set({'backgroud_image_url': ''});
+                break;
         }
     });
 }
@@ -83,6 +87,7 @@ function uploadImage() {
             $("body").css('background-image', 'url(' + url + ')');
             toDataURL(url, function(dataUrl) {
                 chrome.storage.local.set({'backgroud_image_url': dataUrl});
+
             })
         });
     });
@@ -107,7 +112,7 @@ function settingImage() {
 function setDateTime() {
     var m = moment();
     var week = formatWeek(m.weekday());
-    $(".date-time").html(m.get('month')+' / '+m.get('date')+ ' / ' + m.get('year')+ '    '+week);
+   // $(".date-time").html(m.get('month')+ 1 +' / '+m.get('date')+ ' / ' + m.get('year')+ '    '+week);
 }
 
 function formatWeek(week) {
